@@ -1,0 +1,28 @@
+.about {
+  background-color: #000; /* Negro */
+  color: #fff; /* Blanco */
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  color: #E50914; /* Rojo */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about strong {
+  color: #E50914;
+}
