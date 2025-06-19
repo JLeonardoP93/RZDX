@@ -7,6 +7,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 
 
+
 function App () {
   const [view, setView] = useState('home');
   const [cart, setCart] = useState([]);
@@ -124,7 +125,9 @@ const products = [
   };
 
   return (
+     <>
     <div className="app">
+      
       <Navbar 
         cartItems={cart.length} 
         onHomeClick={() => setView('home')} 
@@ -152,6 +155,7 @@ const products = [
       <Contact />
           
     </div>
+      </>
   );
 };   
 
