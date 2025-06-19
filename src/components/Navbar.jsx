@@ -17,16 +17,17 @@ function Navbar ({ cartItems, onHomeClick, onCartClick, onChange }) {
       </div>
       
       <ul className="nav-links">
-        <li onClick={onHomeClick}>Inicio</li>
+        <li onClick={onHomeClick}
+        link>Inicio</li>
         <li><a href='#about'>Sobre Nosotros</a></li>
         <li>Productos</li>
-        <li><label htmlFor='category'>Categorías</label>
+        {/* <li><label htmlFor='category'>Categorías</label>
         <select id='category' className='category-select' onChange={handleChangeCategory}>
           <option value='all'>Todas</option>
           <option value='Boxeo'>Boxeo</option>
           <option value='MMA'>MMA</option>
           <option value='accessories'>Accesorios</option></select>
-        </li>
+        </li> */}
         <li><a href='#contact'>Contacto</a></li>
       </ul>
       
