@@ -1,5 +1,3 @@
-
-
 function ProductCard ({ product, addToCart })  {
   return (
     <div className="product-card">
