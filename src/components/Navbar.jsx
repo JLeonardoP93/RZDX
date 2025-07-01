@@ -17,18 +17,28 @@ function Navbar ({ cartItems, onHomeClick, onCartClick, onChange }) {
         <span className={styles.companyName}>RZDX Implementos Deportivos</span>
       </div>
       
-      <ul className="nav-links">
-        <li onClick={onHomeClick}>Inicio</li>
-        <li><a href='#about'>Sobre Nosotros</a></li>
-        <li>Productos</li>
-        <li><label htmlFor='category'>Categorías</label>
-        <select id='category' className='category-select' onChange={handleChangeCategory}>
-          <option value='all'>Todas</option>
-          <option value='Boxeo'>Boxeo</option>
-          <option value='MMA'>MMA</option>
-          <option value='accessories'>Accesorios</option></select>
+      <ul className={styles.navLinks}>
+        <li>
+          <span className={styles.navItem} onClick={onHomeClick}>Inicio</span>
         </li>
-        <li><a href='#contact'>Contacto</a></li>
+        <li>
+          <a href="#about" className={styles.navItem}>Sobre Nosotros</a>
+        </li>
+        <li>
+          <span className={styles.navItem}>Productos</span>
+        </li>
+        <li className={styles.categoryContainer}>
+          <label htmlFor="category" className={styles.categoryLabel}>Categorías</label>
+          <select id="category" className={styles.categorySelect} onChange={handleChangeCategory}>
+            <option value="all">Todas</option>
+            <option value="Boxeo">Boxeo</option>
+            <option value="MMA">MMA</option>
+            <option value="accessories">Accesorios</option>
+          </select>
+        </li>
+        <li>
+          <a href="#contact" className={styles.navItem}>Contacto</a>
+        </li>
       </ul>
       
       <div className={styles.cartIconContainer} onClick={onCartClick}>
