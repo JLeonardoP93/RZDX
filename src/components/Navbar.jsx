@@ -1,4 +1,5 @@
 import { FaShoppingCart, FaStore } from 'react-icons/fa';
+import styles from './Navbar.module.css';
 
 function Navbar ({ cartItems, onHomeClick, onCartClick, onChange }) {
 
@@ -10,29 +11,39 @@ function Navbar ({ cartItems, onHomeClick, onCartClick, onChange }) {
   }
 
   return (
-    <nav className="navbar">
-      <div className="navbar-brand" onClick={onHomeClick}>
+    <nav className={styles.navbar}>
+      <div className={styles.navbarBrand} onClick={onHomeClick}>
          <img src="https://res.cloudinary.com/dvoakblan/image/upload/v1750188186/logo_jnafhw.png" alt="Logo" width={50} />
-        <span className="company-name">RZDX Implementos Deportivos</span>
+        <span className={styles.companyName}>RZDX Implementos Deportivos</span>
       </div>
       
-      <ul className="nav-links">
-        <li onClick={onHomeClick}>Inicio</li>
-        <li><a href='#about'>Sobre Nosotros</a></li>
-        <li>Productos</li>
-        <li><label htmlFor='category'>Categorías</label>
-        <select id='category' className='category-select' onChange={handleChangeCategory}>
-          <option value='all'>Todas</option>
-          <option value='Boxeo'>Boxeo</option>
-          <option value='MMA'>MMA</option>
-          <option value='accessories'>Accesorios</option></select>
+      <ul className={styles.navLinks}>
+        <li>
+          <span className={styles.navItem} onClick={onHomeClick}>Inicio</span>
         </li>
-        <li><a href='#contact'>Contacto</a></li>
+        <li>
+          <a href="#about" className={styles.navItem}>Sobre Nosotros</a>
+        </li>
+        <li>
+          <span className={styles.navItem}>Productos</span>
+        </li>
+        <li className={styles.categoryContainer}>
+          <label htmlFor='category' className={styles.categoryLabel}>Categorías</label>
+          <select id='category' className={styles.categorySelect} onChange={handleChangeCategory}>
+            <option value='all'>Todas</option>
+            <option value='Boxeo'>Boxeo</option>
+            <option value='MMA'>MMA</option>
+            <option value='accessories'>Accesorios</option>
+          </select>
+        </li>
+        <li>
+          <a href="#contact" className={styles.navItem}>Contacto</a>
+        </li>
       </ul>
       
-      <div className="cart-icon-container" onClick={onCartClick}>
-        <FaShoppingCart className="cart-icon" />
-        {cartItems > 0 && <span className="cart-badge">{cartItems}</span>}
+      <div className={styles.cartIconContainer} onClick={onCartClick}>
+        <FaShoppingCart className={styles.cartIcon} />
+        {cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>}
       </div>
     </nav>
   );

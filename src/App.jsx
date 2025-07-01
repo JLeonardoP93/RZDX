@@ -129,7 +129,7 @@ const products = [
         cartItems={cart.length} 
         onHomeClick={() => setView('home')} 
         onCartClick={() => setView('cart')}
-        changefilter={setFilters}
+        onChange={setFilters}
       />
       
       <main className="main-content">
