@@ -1,31 +1,55 @@
-import { FaShoppingCart, FaStore } from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
-function Navbar ({ cartItems, onHomeClick, onCartClick, onChange }) {
-
+function Navbar({ cartItems, onChange }) {
   const handleChangeCategory = (event) => {
     onChange(prevState => ({
       ...prevState,
       category: event.target.value
-    })) 
-  }
+    }));
+  };
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navbarBrand} onClick={onHomeClick}>
-         <img src="https://res.cloudinary.com/dvoakblan/image/upload/v1750188186/logo_jnafhw.png" alt="Logo" width={50} />
-        <span className={styles.companyName}>RZDX Implementos Deportivos</span>
+      <div className={styles.navbarBrand}>
+        <NavLink to="/" className={styles.brandLink}>
+          <img src="https://res.cloudinary.com/dvoakblan/image/upload/v1750188186/logo_jnafhw.png" alt="Logo" width={50} />
+          <span className={styles.companyName}>RZDX Implementos Deportivos</span>
+        </NavLink>
       </div>
       
       <ul className={styles.navLinks}>
         <li>
-          <span className={styles.navItem} onClick={onHomeClick}>Inicio</span>
+          <NavLink 
+            to="/" 
+            className={({isActive}) => 
+              isActive ? `${styles.navItem} ${styles.activeNavItem}` : styles.navItem
+            }
+            end  // Esto hace que solo coincida con la ruta exacta "/"
+          >
+            Inicio
+          </NavLink>
         </li>
         <li>
-          <a href="#about" className={styles.navItem}>Sobre Nosotros</a>
+          <NavLink 
+            to="/about" 
+            className={({isActive}) => 
+              isActive ? `${styles.navItem} ${styles.activeNavItem}` : styles.navItem
+            }
+          >
+            Sobre Nosotros
+          </NavLink>
         </li>
         <li>
-          <span className={styles.navItem}>Productos</span>
+          <NavLink 
+            to="/products" 
+            className={({isActive}) => 
+              isActive ? `${styles.navItem} ${styles.activeNavItem}` : styles.navItem
+            }
+          >
+            Productos
+          </NavLink>
         </li>
         <li className={styles.categoryContainer}>
           <label htmlFor="category" className={styles.categoryLabel}>Categorías</label>
@@ -36,17 +60,16 @@ function Navbar ({ cartItems, onHomeClick, onCartClick, onChange }) {
             <option value="accessories">Accesorios</option>
           </select>
         </li>
-        <li>
-          <a href="#contact" className={styles.navItem}>Contacto</a>
-        </li>
       </ul>
       
-      <div className={styles.cartIconContainer} onClick={onCartClick}>
-        <FaShoppingCart className={styles.cartIcon} />
-        {cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>}
-      </div>
+      <NavLink to="/cart" className={styles.cartLink}>
+        <div className={styles.cartIconContainer}>
+          <FaShoppingCart className={styles.cartIcon} />
+          {cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>}
+        </div>
+      </NavLink>
     </nav>
   );
-};
+}
 
 export default Navbar;

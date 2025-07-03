@@ -1,15 +1,13 @@
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
-import './App.css';
 import About from './components/About';
-import Contact from './components/Contact';
-
+import './App.css';
 
 
 function App () {
-  const [view, setView] = useState('home');
   const [cart, setCart] = useState([]);
   
   // Datos de productos
@@ -72,22 +70,21 @@ const products = [
   },
 ];
 
-//  categorizar productos
-
- const [filters, setFilters] = useState({
-    category: 'all', // Valor por defecto
-  }); 
+  // Categorizar productos
+  const [filters, setFilters] = useState({
+    category: 'all',
+  });
 
   // Filtrar productos por categoría
-  const filterProducts = (products) =>{
-    return products.filter(product =>{
-      return(
+  const filterProducts = (products) => {
+    return products.filter(product => {
+      return (
         filters.category === 'all' || product.category === filters.category
       )
     })
-  } 
+  }
 
-  const filteredProducts = filterProducts(products)
+  const filteredProducts = filterProducts(products);
     
   // Añadir producto al carrito
   const addToCart = (product) => {
@@ -113,7 +110,9 @@ const products = [
 
   // Actualizar cantidad de producto
   const updateQuantity = (productId, newQuantity) => {
-    if (newQuantity < 1) return;
+    if (newQuantity < 1) {
+      return removeFromCart(productId);
+    }
     
     setCart((currentCart) =>
       currentCart.map(item =>
@@ -124,40 +123,41 @@ const products = [
     );
   };
 
-  return (
-     <>
-    <div className="app">
-      
-      <Navbar 
-        cartItems={cart.length} 
-        onHomeClick={() => setView('home')} 
-        onCartClick={() => setView('cart')}
-        onChange={setFilters}
-      />
-      
-      <main className="main-content">
-        {view === 'home' ? (
-          <>
-            <h1 className="main-title">Productos Destacados</h1>
-            <ProductList products={filteredProducts} addToCart={addToCart} />
-          </>
-        ) : (
-          <Cart 
-            cartItems={cart} 
-            removeFromCart={removeFromCart} 
-            updateQuantity={updateQuantity}
-            onContinueShopping={() => setView('home')}
-          />
-        )}
-
-      </main>
-      <About /> 
-      <Contact />
-          
-    </div>
-      </>
+  // Componente para la página de inicio
+  const HomePage = () => (
+    <>
+      <h1 className="main-title">Productos Destacados</h1>
+      <ProductList products={filteredProducts} addToCart={addToCart} />
+    </>
   );
-};   
 
+  return (
+    <BrowserRouter>
+      <div className="app">
+        <Navbar 
+          cartItems={cart.length} 
+          onChange={setFilters}
+        />
+        
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<HomePage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/cart" element={
+              <Cart 
+                cartItems={cart} 
+                removeFromCart={removeFromCart} 
+                updateQuantity={updateQuantity}
+                onContinueShopping={() => <Navigate to="/" />}
+              />
+            } />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
+  );
+}
 
 export default App;

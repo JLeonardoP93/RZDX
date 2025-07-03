@@ -113,6 +113,38 @@
   background-color: var(--secondary-color);
   color: var(--light-color);
 }
+/* Estilos para NavLink activo */
+.activeNavItem {
+  color: var(--primary-color) !important;
+  font-weight: bold;
+  position: relative;
+}
+
+.activeNavItem::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+/* Estilo para el enlace de la marca */
+.brandLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Estilo para el enlace del carrito */
+.cartLink {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
