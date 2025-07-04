@@ -5,6 +5,13 @@
   --light-color: #ffffff; 
 }
 
+/* Añade esto a tu archivo Navbar.module.css */
+.adminIcon {
+  margin-right: 5px;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
 /* Estilos de la barra de navegación */
 .navbar {
   display: flex;

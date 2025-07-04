@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import About from './components/About';
+import Administrador from './components/Administrador';
 import './App.css';
 
 
@@ -144,6 +145,7 @@ const products = [
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<HomePage />} />
             <Route path="/about" element={<About />} />
+            <Route path="/admin" element={<Administrador />} />
             <Route path="/cart" element={
               <Cart 
                 cartItems={cart} 

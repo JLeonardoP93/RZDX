@@ -1,4 +1,4 @@
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaUserCog } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
@@ -26,7 +26,7 @@ function Navbar({ cartItems, onChange }) {
             className={({isActive}) => 
               isActive ? `${styles.navItem} ${styles.activeNavItem}` : styles.navItem
             }
-            end  // Esto hace que solo coincida con la ruta exacta "/"
+            end
           >
             Inicio
           </NavLink>
@@ -59,6 +59,16 @@ function Navbar({ cartItems, onChange }) {
             <option value="MMA">MMA</option>
             <option value="accessories">Accesorios</option>
           </select>
+        </li>
+        <li>
+          <NavLink 
+            to="/admin" 
+            className={({isActive}) => 
+              isActive ? `${styles.navItem} ${styles.activeNavItem}` : styles.navItem
+            }
+          >
+            <FaUserCog className={styles.adminIcon} /> Admin
+          </NavLink>
         </li>
       </ul>
       
