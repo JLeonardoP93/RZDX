@@ -70,6 +70,16 @@ function Navbar({ cartItems, onChange }) {
             <FaUserCog className={styles.adminIcon} /> Admin
           </NavLink>
         </li>
+        <li>
+          <NavLink 
+            to="/product-controller" 
+            className={({isActive}) => 
+              isActive ? `${styles.navItem} ${styles.activeNavItem}` : styles.navItem
+            }
+          >
+            Gestión Productos
+          </NavLink>
+        </li>
       </ul>
       
       <NavLink to="/cart" className={styles.cartLink}>

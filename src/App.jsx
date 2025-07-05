@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import About from './components/About';
 import Administrador from './components/Administrador';
+import ProductController  from './components/ProductController';
 import './App.css';
 
 
@@ -146,6 +148,7 @@ const products = [
             <Route path="/products" element={<HomePage />} />
             <Route path="/about" element={<About />} />
             <Route path="/admin" element={<Administrador />} />
+            <Route path="/product-controller" element={<ProductController />} />
             <Route path="/cart" element={
               <Cart 
                 cartItems={cart} 
