@@ -5,7 +5,6 @@ import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import About from './components/About';
-import Administrador from './components/Administrador';
 import ProductController  from './components/ProductController';
 import './App.css';
 
@@ -57,7 +56,7 @@ const products = [
   },
   {
     id: 6,
-    name: "Protector genital",
+    name: "Coquilla",
     price: 65.9,
     category: "Boxeo",
     image:
@@ -71,6 +70,53 @@ const products = [
     image:  
       "https://res.cloudinary.com/dvoakblan/image/upload/v1750188186/protectorbucal_rcjdec.png"
   },
+  {
+    id: 8,
+    name: "vendas de boxeo",
+    price: 50.0,
+    category: "Boxeo",
+    image:"https://res.cloudinary.com/dmwohsz6e/image/upload/v1751875586/elite180handwrap_black_xgiiul.jpg"
+  },
+  {
+    id: 9,
+    name: "Espinilleras Venum",
+    price: 250.0,
+    category: "MMA",
+    image:
+      "https://res.cloudinary.com/dmwohsz6e/image/upload/v1751874883/71Ge-wIqvUL_m1icto.jpg"
+  },
+  {
+    id: 10,
+    name: "Cinturon UFC",
+    price: 500.0,
+    category: "MMA",
+    image:
+      "https://res.cloudinary.com/dmwohsz6e/image/upload/v1751875327/4w27bqdt_hkpmkb.jpg"
+  },
+  {
+    id: 11,
+    name: "Pera de Boxeo",
+    price: 60.0,
+    category: "Boxeo",
+    image:
+      "https://res.cloudinary.com/dmwohsz6e/image/upload/v1751875437/61GDGyA4yOL_kf0i4n.jpg"
+  },
+  {
+    id: 12,
+    name: "Casco de Boxeo",
+    price: 150.0,
+    category: "Boxeo",
+    image:
+    "https://res.cloudinary.com/dmwohsz6e/image/upload/v1751875785/everlast-everfresh-boxing-headgear-black-1_vcdobs.jpg"
+  },
+  {
+    id: 13,
+    name: "Shorts Ilia Topuria",
+    price: 50.0,
+    category: "MMA",
+    image:
+      "https://res.cloudinary.com/dmwohsz6e/image/upload/v1751873911/Captura_de_pantalla_2025-07-07_023808_pw9jga.png"
+  }
 ];
 
   // Categorizar productos
@@ -147,7 +193,6 @@ const products = [
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<HomePage />} />
             <Route path="/about" element={<About />} />
-            <Route path="/admin" element={<Administrador />} />
             <Route path="/product-controller" element={<ProductController />} />
             <Route path="/cart" element={
               <Cart 

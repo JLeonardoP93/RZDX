@@ -1,7 +1,5 @@
 import axios from "axios";
 
-
-
 const API_URL = "https://backecommerce-03tv.onrender.com/api"; // Asegúrate que coincida con tu backend
 
 export const getProductos = async () => {

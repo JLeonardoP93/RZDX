@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProduct } from "../api/product";
-import { getProductos } from "../api/producto"; // Si estás usando axios, descomenta esta línea
+import { getProductos } from "../api/producto";
 
 const [productos, setProductos] = useState([]);
 
@@ -34,7 +34,7 @@ const getProductos = async () => {
 
   useEffect(() => {
     getProductos();
-    fetchProductos(); // Si estás usando axios, descomenta esta línea
+    fetchProductos();
   }, []);
 
   return { data, loading, error, getProductos };
