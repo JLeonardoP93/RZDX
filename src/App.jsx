@@ -6,6 +6,7 @@ import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import About from './components/About';
 import ProductController  from './components/ProductController';
+import { Home } from './components/Home';
 import './App.css';
 
 
@@ -172,8 +173,13 @@ const products = [
     );
   };
 
-  // Componente para la página de inicio
-  const HomePage = () => (
+  // Limpiar carrito completo
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  // Componente para la página de productos
+  const ProductsPage = () => (
     <>
       <h1 className="main-title">Productos Destacados</h1>
       <ProductList products={filteredProducts} addToCart={addToCart} />
@@ -190,8 +196,8 @@ const products = [
         
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/products" element={<HomePage />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<ProductsPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/product-controller" element={<ProductController />} />
             <Route path="/cart" element={
@@ -199,6 +205,7 @@ const products = [
                 cartItems={cart} 
                 removeFromCart={removeFromCart} 
                 updateQuantity={updateQuantity}
+                clearCart={clearCart}
                 onContinueShopping={() => <Navigate to="/" />}
               />
             } />

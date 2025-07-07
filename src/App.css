@@ -152,6 +152,25 @@ body {
   margin-top: 2rem;
 }
 
+/* Estilos específicos para el componente Home */
+.rzdx-home-container {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ajustar el main-content para la página home */
+.app:has(.rzdx-home-container) .main-content {
+  padding: 0;
+  max-width: none;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   
